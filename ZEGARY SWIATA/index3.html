@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Zegary Azji</title>
+</head>
+<body>
+    <header>
+        <h1>Zegary Azji</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index2.html">Europa</a></li>
+            <li><a href="index3.html">Azja</a></li>
+            <li><a href="index4.html">Ameryka</a></li>
+        </ul>
+    </nav>
+
+    <div class="clock-container">
+        <div class="clock-loading" id="clock-loading"></div>
+        <div class="digital-clock-container" id="tokyo-container">
+            <div class="city-name">Tokyo</div>
+            <div class="digital-clock" id="tokyo-clock"></div>
+        </div>
+        <div class="digital-clock-container" id="shanghai-container">
+            <div class="city-name">Shanghai</div>
+            <div class="digital-clock" id="shanghai-clock"></div>
+        </div>
+        <div class="digital-clock-container" id="mumbai-container">
+            <div class="city-name">Mumbai</div>
+            <div class="digital-clock" id="mumbai-clock"></div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('clock-loading').style.display = 'none';
+            document.querySelectorAll('.digital-clock-container').forEach(function(clock) {
+                clock.style.visibility = 'visible';
+            });
+        }, 2000);
+
+        setInterval(function() {
+            document.getElementById('tokyo-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "Asia/Tokyo"});
+            document.getElementById('shanghai-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "Asia/Shanghai"});
+            document.getElementById('mumbai-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"}); // Mumbai
+        }, 1000);
+    </script>
+</body>
+</html>

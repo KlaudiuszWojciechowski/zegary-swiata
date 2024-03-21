@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Zegary Ameryki</title>
+</head>
+<body>
+    <header>
+        <h1>Zegary Ameryki</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index2.html">Europa</a></li>
+            <li><a href="index3.html">Azja</a></li>
+            <li><a href="index4.html">Ameryka</a></li>
+        </ul>
+    </nav>
+
+    <div class="clock-container">
+        <div class="clock-loading" id="clock-loading"></div>
+        <div class="digital-clock-container" id="new-york-container">
+            <div class="city-name">New York</div>
+            <div class="digital-clock" id="new-york-clock"></div>
+        </div>
+        <div class="digital-clock-container" id="los-angeles-container">
+            <div class="city-name">Los Angeles</div>
+            <div class="digital-clock" id="los-angeles-clock"></div>
+        </div>
+        <div class="digital-clock-container" id="chicago-container">
+            <div class="city-name">Chicago</div>
+            <div class="digital-clock" id="chicago-clock"></div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('clock-loading').style.display = 'none';
+            document.querySelectorAll('.digital-clock-container').forEach(function(clock) {
+                clock.style.visibility = 'visible';
+            });
+        }, 2000);
+
+        setInterval(function() {
+            document.getElementById('new-york-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+            document.getElementById('los-angeles-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+            document.getElementById('chicago-clock').innerText = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+        }, 1000);
+    </script>
+</body>
+</html>

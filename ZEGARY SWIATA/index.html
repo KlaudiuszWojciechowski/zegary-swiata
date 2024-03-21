@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Zegary Świata</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"></a>
+        <h1>Zegary Świata</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index2.html">Europa</a></li>
+            <li><a href="index3.html">Azja</a></li>
+            <li><a href="index4.html">Ameryka</a></li>
+        </ul>
+    </nav>
+
+    <div class="clock-container">
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="digital-clock" id="digitalClock"></div>
+    
+    <script> 
+        setInterval(() => {
+        const now = new Date();
+        const [hours, minutes, seconds] = [now.getHours() % 12, now.getMinutes(), now.getSeconds()];
+        document.querySelector('.hr').style.transform = `rotate(${hours * 30 + (0.5 * minutes)}deg)`;
+        document.querySelector('.mn').style.transform = `rotate(${minutes * 6 + (0.1 * seconds)}deg)`;
+        document.querySelector('.sc').style.transform = `rotate(${seconds * 6}deg)`;
+        }, 1000);   
+
+    </script>
+</body>
+</html>
